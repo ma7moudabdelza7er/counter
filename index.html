@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="background"></section>
+    <div class="loading-text">0%</div>
+
+    <script>
+        let loading = document.querySelector(".loading-text");
+        let background = document.querySelector(".background");
+        let load = 0;
+        setInterval(bluring , 30);
+        function bluring(){
+            loading.innerHTML = `${load}%`;
+            // loading.style.opacity=scale(load, 0, 100, 1, 0);
+            if(load >= 0 && load < 40){
+                load++;
+                background.style.filter = `blur(11px)`;
+            }else if(load >= 40 && load < 70 ){
+                load++;
+                background.style.filter = `blur(7px)`;
+            }else if(load >= 70 && load !== 100 ){
+                load++;
+                background.style.filter = `blur(3px)`;
+            }else{
+                clearInterval();
+                setTimeout(function(){
+                    loading.style.display='none';
+                    background.style.filter = `blur(0)`;
+                },1000)
+
+            }
+        }
+        // const scale = function(num, in_min, in_max, out_min, out_max){
+        //     return 
+
+        // }
+
+
+    </script>
+</body>
+</html>
